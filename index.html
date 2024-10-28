@@ -20,7 +20,6 @@
             align-items: center;
             flex-direction: column;
             overflow: hidden;
-            /*cursor: url(https://cur.cursors-4u.net/cursors/cur-2/cur116.cur), auto !important;*/
             cursor: url(https://cur.cursors-4u.net/cursors/cur-7/cur641.cur), auto !important;
         }
 
@@ -111,61 +110,19 @@
             }
         }
 
-        .music-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .music-button {
-            background-color: transparent;
-            border: none;
-            color: #ffffff;
-            font-size: 1em;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            margin: 0 10px;
-            outline: none; /* Remove default button outline */
-        }
-
-        .music-button:hover {
-            color: #ff00ff;
-        }
-
-        .music-button.playing::after {
-            content: 'Pause';
-        }
-
-        @media (max-width: 600px) {
-            .bottom-text {
-                font-size: 1.5em;
-            }
-
-            .gif-container img {
-                max-width: 100%;
-            }
-        }
-
-        /* Neon cursor styles 
-        .neon-cursor { 
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background-color: rgba(255, 0, 255, 0.5);
-            border: 2px solid #ff00ff;
-            border-radius: 50%;
-            pointer-events: none;
-            box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-            transition: transform 0.1s ease; */
-        }
-
         .social-links {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 20px;
         }
 
         .social-link {
-            margin: 0 10px;
             color: #ffffff;
             font-size: 1.5em;
             text-decoration: none;
@@ -175,26 +132,30 @@
         .social-link:hover {
             color: #ff00ff;
         }
+
+        /* Adds space between GitHub link and Instagram/Twitter row */
+        .github-link {
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <div class="gif-container">
-            <!--<img id="currentGif" src="https://media1.tenor.com/m/kezgC7R5jE8AAAAC/tokyo-ghoul-kaneki.gif" alt="Guts"> -->
-             <img id="currentGif" src="https://media1.tenor.com/m/GB2kusUamFYAAAAd/guts-berserk-guts.gif" alt="Guts">
+            <img id="currentGif" src="https://media1.tenor.com/m/GB2kusUamFYAAAAd/guts-berserk-guts.gif" alt="Guts">
         </div>
         <div class="bottom-text">
             <span class="hack-text">Miyazaki</span>
         </div>
-        <div class="music-controls">
-        </div>
         <div class="social-links">
-            <a href="https://www.instagram.com/_g75?igsh=MWt6NXltMDJ1ZG5mYw==" class="social-link" target="_blank">Instagram</a>
-            <a href="https://twitter.com/0xMzk" class="social-link" target="_blank">Twitter</a>
+            <div class="social-row">
+                <a href="https://www.instagram.com/_g75?igsh=MWt6NXltMDJ1ZG5mYw==" class="social-link" target="_blank">Instagram</a>
+                <a href="https://twitter.com/0xMzk" class="social-link" target="_blank">Twitter</a>
+            </div>
+            <a href="https://github.com/rtex1" class="social-link github-link" target="_blank">GitHub</a>
         </div>
     </div>
     <div class="text-bar">
-        <!--<div class="moving-text">"All of the liabilities in this world are due to the inadequacies of the person involved." — ken kaneki</div>-->
         <div class="moving-text">"If you’re always worried about crushing the ants beneath you… you won’t be able to walk." — Guts</div>
     </div>
     <div class="neon-cursor" id="neonCursor"></div>
@@ -204,23 +165,6 @@
             cursor.style.left = e.pageX + 'px';
             cursor.style.top = e.pageY + 'px';
         });
-
-        function toggleMusic() {
-            var music = document.getElementById('music');
-            var button = document.getElementById('toggleButton');
-            var gif = document.getElementById('currentGif');
-            if (music.paused) {
-                music.play();
-                button.classList.add('playing');
-                button.innerText = 'Pause';
-                //gif.src = 'https://i.pinimg.com/originals/8d/38/8f/8d388f38ade142d0e6f7e6c54aa835c8.gif'; // New GIF URL
-            } else {
-                music.pause();
-                button.classList.remove('playing');
-                button.innerText = 'Play';
-                gif.src = 'https://media1.tenor.com/m/GB2kusUamFYAAAAd/guts-berserk-guts.gif'; // Original GIF URL
-            }
-        }
     </script>
 </body>
 </html>
